@@ -1,5 +1,8 @@
-(require 'windmove)
+;;; package --- For swapping two Buffers inside of Emacs
+;;; Commentary:
+;;; Code:
 
+(require 'windmove)
 ;;;###autoload
 (defun buf-move-up ()
   "Swap the current buffer and the buffer above the split.
@@ -67,5 +70,5 @@ one, an error is signaled."
       (set-window-buffer other-win buf-this-buf)
       (select-window other-win))))
 
-
 (provide 'buffer-move)
+;;; buffer-move.el ends here
