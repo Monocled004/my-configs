@@ -26,10 +26,11 @@
 
 ;; Shortcut for quickrun command
 (require 'quickrun)
-(load "/home/yash/.emacs.d/run.el")
+(load "/home/username/.emacs.d/run.el")
 
 ;; key bindings for buffer switching
-(load "/home/yash/.emacs.d/myshortcuts.el")
+(load "/home/username/.emacs.d/myshortcuts.el")
 
 ;; Loading Treemacs on startup
-(add-hook 'emacs-startup-hook 'treemacs)
+;; enable it removing two ";" in following line
+;;(add-hook 'emacs-startup-hook 'treemacs)
