@@ -1,6 +1,6 @@
 ;; Loading my theme
 (load-theme 'my t)
-(load "/home/yash/.emacs.d/fixed-errors.el")
+(load "/home/username/.emacs.d/fixed-errors.el")
 (tab-bar-mode 1)
 (tab-line-mode 1)
 
