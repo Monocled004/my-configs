@@ -111,7 +111,7 @@
             "default": " "
         },
         "escape": true,
-        "exec": "python /home/yash/.config/waybar/mediaplayer.py",
+        "exec": "python ~/.config/waybar/mediaplayer.py",
         "on-click": "playerctl previous",
         "on-click-right": "playerctl next"
     },
