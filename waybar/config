@@ -1,0 +1,138 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 35,
+    "margin-top": 5,
+    "margin-bottom": 0,
+
+    // Choose the order of the modules
+
+    "modules-left": ["custom/launcher", "wlr/taskbar", "custom/media", "custom/spotify"],
+    "modules-center": ["hyprland/workspaces", "river/tags"],
+    "modules-right": ["pulseaudio", "backlight", "cpu", "memory", "battery", "network", "clock", "custom/power"],
+
+    // Modules configuration
+
+     "hyprland/workspaces": {
+         "disable-scroll": true,
+         "all-outputs": false,
+         "format": "{name}"
+    },
+    "wlr/taskbar": {
+        "format": "{icon}",
+        "icon-size": 28,
+        "icon-theme": "Star",
+        "tooltip-format": "{title}",
+        "on-click": "minimize",
+        "on-click-middle": "close",
+        "on-click-right": "activate"
+    },
+    "hyprland/mode": {
+        "format": "<span style=\"italic\">{}</span>"
+    },
+    "tray": {
+        "icon-size": 20,
+        "spacing": 10
+    },
+    
+    "clock": {
+        // "timezone": "Asia/Kolkata",
+	"format": "{:%I:%M %p}  ",
+	"tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "format-alt": "{:%d-%m-%Y}"
+    },
+    
+    "cpu": {
+        "format": "{usage}%  ",
+        "tooltip": true
+    },
+    
+    "memory": {
+        "format": "{}%  "
+    },
+
+    "battery": {
+        "states": {
+            // "good": 95,
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{capacity}% {icon}",
+        "format-charging": "{capacity}% ",
+        "format-plugged": "{capacity}% ",
+        "format-alt": "{time} {icon}",
+        // "format-good": "", // An empty format will hide the module
+        // "format-full": " ",
+        "format-icons": [" ", " ", " ", " ", " "]
+    },
+    
+    "network": {
+        // "interface": "wlp2*", // (Optional) To force the use of this interface
+        "format-wifi": "{essid}  ",
+        "format-ethernet": "Connected  ",
+        "tooltip-format": "{ifname} via {gwaddr} ",
+        "format-linked": "{ifname} (No IP) ",
+        "format-disconnected": "Disconnected ⚠",
+        "format-alt": "{ifname}: {ipaddr}/{cidr}",
+        "on-click-right": "bash ~/.config/polybar/rofi-wifi-menu.sh"
+    },
+    
+    "backlight": {
+        "format": "{percent}% {icon}",
+        "format-icons": ["󱧢", "󱩑", "󱩔", "󰛨"]
+    },
+    
+    "pulseaudio": {
+        // "scroll-step": 1, // %, can be a float
+        "format": "{volume}% {icon}",
+        "format-bluetooth": "{volume}% {icon}",
+        "format-bluetooth-muted": "{icon} {format_source}",
+        "format-muted": "{format_source}",
+        "format-source": "",
+        "format-source-muted": "",
+        "format-icons": {
+            "headphone": " ",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": " ",
+            "default": ["", "", " "]
+        },
+        "on-click": "pavucontrol"
+    },
+    
+    "custom/media": {
+        "format": "{icon} {}",
+        "return-type": "json",
+        "max-length": 30,
+        "format-icons": {
+            "spotify": " ",
+            "default": " "
+        },
+        "escape": true,
+        "exec": "python /home/yash/.config/waybar/mediaplayer.py",
+        "on-click": "playerctl previous",
+        "on-click-right": "playerctl next"
+    },
+    
+    "custom/launcher":{
+	"format": "    ",
+        "on-click": "rofi -show drun",
+        "on-click-right": "killall rofi"
+    },
+    
+    "custom/power":{
+        "format": " 󰐥 ",
+        "on-click": "wlogout"
+    },
+
+    "river/tags": {
+        "num-tags": 3,
+        "set-tags": [
+            2147483649,
+            2147483650,
+            2147483652
+        ]
+    }
+}
