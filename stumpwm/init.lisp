@@ -1,0 +1,52 @@
+'
+;;; Loading and making stumpwm package a default package
+(in-package :stumpwm)
+(setf *default-package* :stumpwm)
+
+;;; Setting the resolution at startup
+(run-shell-command "xrandr -s 1920x1080")
+
+;;; Loading quicklisp
+(let ((quicklisp-init (merge-pathnames "quicklisp/setup.lisp"
+                                       (user-homedir-pathname))))
+  (when (probe-file quicklisp-init)
+    (load quicklisp-init)))
+
+;;; Setting up Wallpaper at startup
+(run-shell-command "bash ~/.config/stumpwm/random.sh")
+(run-shell-command "picom --config ~/.config/picom/picom.conf")
+
+;;; Loading Modules
+(ql:quickload "clx-truetype")
+(init-load-path "~/.config/stupmwm/modules/")
+
+;;; Setting mouse click property to change window
+(setf *mouse-focus-policy* :click)
+
+(ql:quickload "clx-truetype")
+(load-module "ttf-fonts")
+(xft:cache-fonts)
+(set-font (make-instance 'xft:font :family "DejaVu Sans Mono" :subfamily "Book" :size 14))
+
+;;; Loading Modeline
+;(load "~/.config/stumpwm/modeline.lisp")
+
+;;; loading theme
+(load "~/.config/stumpwm/theme.lisp")
+
+;;; loading polybar
+(run-shell-command "bash ~/.config/polybar/launch.sh --material")
+
+;;; loading my keybindings
+(load "~/.config/stumpwm/keybindings.lisp")
+
+;;; loading my custom hooks
+(load "~/.config/stumpwm/tilingtest.lisp")
+
+;;; creating groups
+(gnew "ws")
+(gnew "spotify")
+(gselect "1")
+
+;;; Startup Message
+(setf *startup-message* "StumpWM is Ready!")
