@@ -1,6 +1,6 @@
 ;; Loading my theme
 (load-theme 'my t)
-(load "/home/yash/.emacs.d/fixed-errors.el")
+(load "$HOME/.config/emacs/fixed-errors.el")
 (menu-bar-mode -1)
 (tool-bar-mode -1)
 
@@ -27,10 +27,10 @@
 
 ;; Shortcut for quickrun command
 (require 'quickrun)
-(load "/home/yash/.emacs.d/run.el")
+(load "$HOME/.config/emacs/run.el")
 
 ;; key bindings for buffer switching
-(load "/home/yash/.emacs.d/my-shortcuts.el")
+(load "$HOME/.config/emacs/my-shortcuts.el")
 
 ;; Loading Treemacs on startup
 ;;(add-hook 'emacs-startup-hook 'treemacs)
