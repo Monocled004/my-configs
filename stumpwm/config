@@ -13,7 +13,7 @@
     (load quicklisp-init)))
 
 ;;; Setting up Wallpaper at startup
-(run-shell-command "bash ~/.config/stumpwm/random.sh")
+(run-shell-command "bash ~/.config/scripts/random.sh")
 (run-shell-command "picom --config ~/.config/picom/picom.conf")
 
 ;;; Loading Modules
@@ -26,7 +26,7 @@
 (ql:quickload "clx-truetype")
 (load-module "ttf-fonts")
 (xft:cache-fonts)
-(set-font (make-instance 'xft:font :family "DejaVu Sans Mono" :subfamily "Book" :size 14))
+(set-font (make-instance 'xft:font :family "FiraCode Nerd Font" :subfamily "Regular" :size 14))
 
 ;;; Loading Modeline
 ;(load "~/.config/stumpwm/modeline.lisp")
@@ -35,7 +35,7 @@
 (load "~/.config/stumpwm/theme.lisp")
 
 ;;; loading polybar
-(run-shell-command "bash ~/.config/polybar/launch.sh --material")
+(run-shell-command "bash ~/.config/polybar/launch.sh --forest")
 
 ;;; loading my keybindings
 (load "~/.config/stumpwm/keybindings.lisp")
