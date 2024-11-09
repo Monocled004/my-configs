@@ -1,6 +1,6 @@
 
 ;;; Loading colors
-(load "~/.stumpwm.d/colors.lisp")
+(load "~/.config/stumpwm/colors.lisp")
 
 
 (set-border-color        "#4CB9E7")
