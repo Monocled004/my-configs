@@ -222,7 +222,7 @@ window#waybar.hidden {
 
 #custom-launcher{
     background-color: #161320;
-    background-image: url('/home/yash/Pictures/hyprland26.png');
+    background-image: url('../hypr/hyprland.png');
     background-repeat: no-repeat;
     background-position: center;
     background-size: 24px 24px;
