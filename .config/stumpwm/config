@@ -1,0 +1,54 @@
+
+;;; Loading and making stumpwm package a default package
+(in-package :stumpwm)
+(setf *default-package* :stumpwm)
+
+;;; Setting the resolution at startup
+(run-shell-command "xrandr -s 1920x1080")
+
+;;; Loading quicklisp
+(let ((quicklisp-init (merge-pathnames "quicklisp/setup.lisp"
+                                       (user-homedir-pathname))))
+  (when (probe-file quicklisp-init)
+    (load quicklisp-init)))
+
+;;; Loading Modules
+(init-load-path "~/.config/stumpwm/modules/")
+(ql:quickload '(:clx-truetype :slynk :split-sequence))
+
+;;; Setting mouse click property to change window
+(setf *mouse-focus-policy* :click)
+
+(load-module "ttf-fonts")
+(xft:cache-fonts)
+(set-font (make-instance 'xft:font :family "FiraCode Nerd Font" :subfamily "Bold" :size 14))
+
+;;; connecting stumpwm to slynk server so can be used through emacs
+(defcommand slynk (port)
+  ((:string "Port number:"))
+  (sb-thread:make-thread
+   (lambda ()
+     (slynk:create-server
+      :port (parse-integer port)
+      :dont-close t))
+   :name "slynk-manual"))
+
+;;; Notifications through dbus server
+(load-module "notify")
+(notify:notify-server-on)
+
+;;; loading theme
+(load "~/.config/stumpwm/colors.lisp")
+(load "~/.config/stumpwm/theme.lisp")
+
+;(load "~/.config/stumpwm/functions.lisp")
+;(load "~/.config/stumpwm/modeline.lisp")
+
+;;; loading my keybindings
+(load "~/.config/stumpwm/keybindings.lisp")
+
+;;; loading my custom hooks
+(load "~/.config/stumpwm/hooks.lisp")
+
+;;; Startup Message
+(setf *startup-message* "StumpWM is Ready!")
