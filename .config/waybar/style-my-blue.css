@@ -1,0 +1,272 @@
+* {
+    border: none;
+    border-radius: 0px;
+    font-family: Roboto, Helvetica, Arial, sans-serif;
+    font-size: 18px;
+    min-height: 40px;
+}
+
+window#waybar {
+    background-color: transparent;
+    color: #ffffff;
+    transition-property: background-color;
+    transition-duration: .5s;
+}
+
+window#waybar.hidden {
+    opacity: 0.2;
+}
+
+#workspaces button {
+    color: #00bfff;
+    border-radius: 10px;
+    margin-top: 4px;
+    margin-left: 4px;
+    margin-right: 4px;
+    border-style: solid;
+    border-width: 2px 2px;
+    border-color: #00bfff;
+    min-width: 32px;
+}
+
+/* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
+#workspaces button:hover {
+    background: #00bfff;
+    color: black;
+    border-bottom: 0px solid #00bfff;
+}
+
+#workspaces button.focused {
+    background: transparent;
+}
+
+#workspaces button.focused:hover {
+    background: #00bfff;
+    color: black;
+    border-bottom: 0px solid #00bfff;
+
+}
+
+#workspaces button.urgent {
+    border-color: #eb4d4b;
+}
+
+#mode {
+    background-color: #64727D;
+    border-bottom: 3px solid #ffffff;
+}
+
+#clock,
+#battery,
+#cpu,
+#memory,
+#disk,
+#temperature,
+#backlight,
+#network,
+#pulseaudio,
+#custom-media,
+#custom-power,
+#tray,
+#mode,
+#idle_inhibitor,
+#mpd {
+    padding: 0 10px;
+    color: #00bfff;
+    opacity: 0.8;
+    border-style: solid;
+    border-width: 2px 2px;
+    border-color: #00bfff;
+}
+
+#taskbar,
+#custom-launcher
+{
+    padding: 0 10px;
+    color: #00bfff;
+    border-style: solid;
+    border-width: 2px 2px;
+    border-color: #00bfff;
+    margin-top: 4px;
+    margin-left: 4px;
+    margin-right: 4px;
+}
+
+
+#window,
+#workspaces {
+    margin: 0px 4px;
+}
+
+/* If workspaces is the leftmost module, omit left margin */
+.modules-left > widget:first-child > #workspaces {
+    margin-left: 0px;
+}
+
+/* If workspaces is the rightmost module, omit right margin */
+.modules-right > widget:last-child > #workspaces {
+    margin-right: 0px;
+}
+
+#clock {
+    background-color: transparent;
+    color: #00bfff;
+    border-radius: 10px;
+    margin-right: 8px;
+    margin-top: 4px;
+    margin-left: 4px;
+    margin-right: 4px;
+}
+
+#backlight {
+    background-color: transparent;
+    color: #00bfff;
+    border-radius: 10px;
+    margin-top: 4px;
+    margin-left: 4px;
+    margin-right: 4px;
+}
+
+#battery {
+    background-color: transparent;
+    color: #00bfff;
+    border-radius: 10px;
+    margin-top: 4px;
+    margin-left: 4px;
+    margin-right: 4px;
+}
+
+label:focus {
+    background-color: #000000;
+}
+
+#cpu {
+    background-color: transparent;
+    color: #00bfff;
+    border-radius: 10px;
+    margin-top: 4px;
+    margin-left: 4px;
+    margin-right: 4px;
+}
+
+#memory {
+    background-color: transparent;
+    color: #00bfff;
+    border-radius: 10px;
+    margin-top: 4px;
+    margin-left: 4px;
+    margin-right: 4px;
+}
+
+#disk {
+    background-color: transparent;
+    color: #00bfff;
+    border-radius: 10px;
+    margin-top: 4px;
+    margin-left: 4px;
+    margin-right: 4px;
+}
+
+#network {
+    background-color: transparent;
+    color: #00bfff;
+    border-radius: 10px;
+    margin-top: 4px;
+    margin-left: 4px;
+    margin-right: 4px;
+}
+
+#network.disconnected {
+    background-color: transparent;
+    color: red;
+    border-radius: 10px;
+}
+
+#pulseaudio {
+    background-color: transparent;
+    color: #00bfff;
+    border-radius: 10px;
+    margin-top: 4px;
+    margin-left: 4px;
+    margin-right: 4px;
+}
+
+#pulseaudio.muted {
+    background-color: transparent;
+    color: red;
+    border-radius: 10px;
+}
+
+#custom-media {
+    background-color: transparent;
+    color: #00bfff;
+    border-radius: 10px;
+    margin-right: 5px;
+    margin-top: 4px;
+    margin-left: 4px;
+    margin-right: 4px;
+}
+
+#custom-media.custom-spotify {
+    background-color: transparent;
+    color: #00bfff;
+    border-radius: 10px;
+    margin-right: 5px;
+}
+
+#custom-media.custom-vlc {
+    background-color: transparent;
+    color: #00bfff;
+    border-radius: 10px;
+    margin-right: 5px;
+}
+
+#custom-power{
+    background-color: transparent;
+    font-size: 16px;
+    border-radius: 10px;
+    margin-right: 4px;
+    margin-top: 4px;
+    margin-left: 4px;
+    margin-right: 4px;
+}
+
+#custom-launcher{
+    background-image: url('/home/yash/Pictures/hyprland26.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 28px 28px;
+    padding: 2px;
+    background-color: transparent;
+    font-size: 18px;
+    border-radius: 10px;
+    margin-top: 4px;
+    margin-left: 4px;
+    margin-right: 4px;
+}
+#taskbar{
+    background-color: transparent;
+    background-size: 28px 28px;
+    font-size: 26px;
+    border-radius: 10px;
+    margin-left: 4px;
+    margin-right: 4px;
+    margin-top: 4px;
+}
+
+#tray {
+    background-color: transparent;
+    color: #00bfff;
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+    background-color: transparent;
+    color: #00bfff;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    background-color: transparent;
+    color: #00bfff;
+}

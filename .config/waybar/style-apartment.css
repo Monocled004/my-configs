@@ -1,0 +1,223 @@
+* {
+    border: none;
+    border-radius: 0px;
+    font-family: Roboto, Helvetica, Arial, sans-serif;
+    font-size: 18px;
+    min-height: 40px;
+}
+
+window#waybar {
+    background-color: transparent;
+    color: #ffffff;
+    transition-property: background-color;
+    transition-duration: .5s;
+}
+
+window#waybar.hidden {
+    opacity: 0.2;
+}
+
+#workspaces button {
+    background: #ffdab9;
+    color: #1f1f1f;
+    border-radius: 10px;
+    margin: 0px 4px;
+}
+
+/* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
+#workspaces button:hover {
+    background: #FFA07A;
+    color: black;
+}
+
+#workspaces button.focused {
+    background: #1f1f1f;
+}
+
+#workspaces button.focused:hover {
+    background: #FFA07A;
+    color: black;
+}
+
+#workspaces button.urgent {
+    background-color: #eb4d4b;
+}
+
+#mode {
+    background-color: #64727D;
+    border-bottom: 3px solid #ffffff;
+}
+
+#clock,
+#battery,
+#cpu,
+#memory,
+#disk,
+#temperature,
+#backlight,
+#network,
+#pulseaudio,
+#custom-media,
+#custom-power,
+#tray,
+#mode,
+#idle_inhibitor,
+#mpd {
+    padding: 0 10px;
+    color: black;
+    opacity: 0.8;
+    margin-left: 4px;
+    margin-right: 4px;
+    border-radius: 10px;
+}
+
+#taskbar,
+#custom-launcher
+{
+    padding: 0 10px;
+    color: black;
+    margin-left: 4px;
+    margin-right: 4px;
+}
+
+
+#window,
+#workspaces {
+    margin: 0px 4px;
+}
+
+/* If workspaces is the leftmost module, omit left margin */
+.modules-left > widget:first-child > #workspaces {
+    margin-left: 0px;
+}
+
+/* If workspaces is the rightmost module, omit right margin */
+.modules-right > widget:last-child > #workspaces {
+    margin-right: 0px;
+}
+
+#clock {
+    background-color: #CD8162;
+    background-image: linear-gradient(-45deg, #CD8162 0%, #FFA07A 52%, #FFA07A 90%);
+    color: black;
+    margin-right: 4px;
+
+}
+
+#battery {
+    background-color: #CD8162;
+    background-image: linear-gradient(-90deg, #FFA07A 0%, #FFBD9A 100%);
+    color: black;
+}
+
+label:focus {
+    background-color: #000000;
+}
+
+#backlight {
+    background-color: #ffdab9;
+    color: black;
+}
+
+#cpu {
+    background-color: #ffdab9;
+    color: black;
+}
+
+#memory {
+    background-image: linear-gradient(-90deg, #FFBD9A 0%, #ffdab9 100%);
+    color: black;
+}
+
+#disk {
+    background-color: #CD8162;
+    background-image: linear-gradient(45deg, #FFA07A 0%, #FFA07A 52%, #FFA07A 90%);
+    color: black;
+}
+
+#network {
+    background-color: #CD8162;
+    background-image: linear-gradient(45deg, #FFA07A 0%, #FFA07A 52%, #FFA07A 90%);
+    color: black;
+}
+
+#network.disconnected {
+    background-color: #FFA07A;
+    color: red;
+}
+
+#pulseaudio {
+    background-color: #ffdab9;
+    color: black;
+}
+
+#pulseaudio.muted {
+    background-color: #ffdab9;
+    color: red;
+}
+
+#custom-media {
+    background-image: linear-gradient(90deg, #FFBD9A 0%, #ffdab9 100%);
+    color: black;
+    border-radius: 10px;
+    margin-right: 5px;
+}
+
+#custom-media.custom-spotify {
+    background-image: linear-gradient(90deg, #FFBD9A 0%, #ffdab9 100%);
+    color: black;
+    border-radius: 10px;
+    margin-right: 5px;
+}
+
+#custom-media.custom-vlc {
+    background-image: linear-gradient(90deg, #FFBD9A 0%, #ffdab9 100%);
+    color: black;
+    border-radius: 10px;
+    margin-right: 5px;
+}
+
+#custom-power{
+    background-color: #FFA07A;
+    font-size: 16px;
+    border-radius: 10px;
+    margin-right: 4px;
+}
+
+#custom-launcher{
+    background-image: url('/home/yash/Pictures/hyprland26.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 24px 24px;
+    padding: 2px;
+    background-color: #FFA07A;
+    font-size: 18px;
+    border-radius: 10px;
+    margin-left: 4px;
+}
+#taskbar{
+    background-image: linear-gradient(90deg, #FFA07A 0%, #FFBD9A 100%);
+    font-size: 18px;
+    border-radius: 10px;
+    margin-left: 4px;
+}
+
+#tray {
+    background-color: #CD8162;
+    background-image: linear-gradient(-45deg, #FFA07A 0%, #FFA07A 52%, #FFA07A 90%);
+    color: black;
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+    background-color: #CD8162;
+    background-image: linear-gradient(-45deg, #CD8162 0%, #FFA07A 52%, #FFA07A 90%);
+    color: black;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    background-color: #CD8162;
+    background-image: linear-gradient(-45deg, #CD8162 0%, #FFA07A 52%, #FFA07A 90%);
+    color: black;
+}
