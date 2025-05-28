@@ -1,137 +1,107 @@
 {
     "layer": "top",
     "position": "top",
-    "height": 35,
-    "margin-top": 5,
-    "margin-bottom": 0,
+    "modules-left": ["hyprland/workspaces", "custom/music"],
+    "modules-center": ["clock"],
+    "modules-right": ["pulseaudio", "pulseaudio/slider", "backlight", "battery", "network", "bluetooth", "custom/power"],
 
-    // Choose the order of the modules
+    "hyprland/workspaces": {
+        "disable-scroll": true,
+        "sort-by-name": true,
+        "format": " {icon} ",
+        "format-icons": {
+            "default": " ",
+        },
+    },
 
-    "modules-left": ["custom/launcher", "wlr/taskbar", "custom/media"],
-    "modules-center": ["hyprland/workspaces", "river/tags"],
-    "modules-right": ["pulseaudio", "backlight", "cpu", "memory", "battery", "network", "clock", "custom/power"],
+    "custom/music": {
+        "format": "  {}",
+        "escape": true,
+        "interval": 5,
+        "tooltip": false,
+        "exec": "playerctl metadata --format='{{ title }}'",
+        "on-click": "playerctl play-pause",
+        "max-length": 50
+    },
 
-    // Modules configuration
-
-     "hyprland/workspaces": {
-         "disable-scroll": true,
-         "all-outputs": false,
-         "format": "{name}"
-    },
-    "wlr/taskbar": {
-        "format": "{icon}",
-        "icon-size": 28,
-        "icon-theme": "Star",
-        "tooltip-format": "{title}",
-        "on-click": "minimize",
-        "on-click-middle": "close",
-        "on-click-right": "activate"
-    },
-    "hyprland/mode": {
-        "format": "<span style=\"italic\">{}</span>"
-    },
-    "tray": {
-        "icon-size": 20,
-        "spacing": 10
-    },
-    
     "clock": {
-        // "timezone": "Asia/Kolkata",
-	"format": "{:%I:%M %p}  ",
-	"tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format-alt": "{:%d-%m-%Y}"
+        "timezone": "Asia/Kolkata",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "format-alt": "󰃭  {:%d/%m/%Y}",
+        "format": "  {:%I:%M %p}"
     },
-    
-    "cpu": {
-        "format": "{usage}%  ",
-        "tooltip": true
-    },
-    
-    "memory": {
-        "format": "{}%  "
+
+    "backlight": {
+        "device": "intel_backlight",
+        "format": "{icon} {percent}%",
+        "format-icons": ["", "", "", "", "", "", "", "", " "]
     },
 
     "battery": {
         "states": {
-            // "good": 95,
             "warning": 30,
             "critical": 15
         },
-        "format": "{capacity}% {icon}",
-        "format-charging": "{capacity}% ",
-        "format-plugged": "{capacity}% ",
-        "format-alt": "{time} {icon}",
-        // "format-good": "", // An empty format will hide the module
-        // "format-full": " ",
-        "format-icons": [" ", " ", " ", " ", " "]
+        "format": "{icon} {capacity}%",
+        "format-charging": "󰢝 ",
+        "format-plugged": "󰂄",
+        "format-alt": "{icon}",
+        "format-icons": ["󰁺", "󰁼", "󰁿",  "󰁹"]
     },
-    
-    "network": {
-        // "interface": "wlp2*", // (Optional) To force the use of this interface
-        "format-wifi": "{essid}  ",
-        "format-ethernet": "Connected  ",
-        "tooltip-format": "{ifname} via {gwaddr} ",
-        "format-linked": "{ifname} (No IP) ",
-        "format-disconnected": "Disconnected ⚠",
-        "format-alt": "{ifname}: {ipaddr}/{cidr}",
-        "on-click-right": "bash ~/.config/polybar/rofi-wifi-menu.sh"
-    },
-    
-    "backlight": {
-        "format": "{percent}% {icon}",
-        "format-icons": ["󱧢", "󱩑", "󱩔", "󰛨"]
-    },
-    
+
     "pulseaudio": {
-        // "scroll-step": 1, // %, can be a float
-        "format": "{volume}% {icon}",
-        "format-bluetooth": "{volume}% {icon}",
-        "format-bluetooth-muted": "{icon} {format_source}",
-        "format-muted": "{format_source}",
-        "format-source": "",
-        "format-source-muted": "",
+        "format": "{icon}",
+        "format-muted": "",
         "format-icons": {
-            "headphone": " ",
-            "hands-free": "",
-            "headset": "",
-            "phone": "",
-            "portable": "",
-            "car": " ",
-            "default": ["", "", " "]
+            "default": ["", "", ""]
         },
         "on-click": "pavucontrol"
     },
-    
-"custom/media": {
-    "format": "{icon} {}",
-    "escape": true,
-    "return-type": "json",
-    "max-length": 40,
-    "on-click": "playerctl play-pause",
-    "on-click-right": "playerctl stop",
-    "smooth-scrolling-threshold": 10, // This value was tested using a trackpad, it should be lowered if using a mouse.
-    "on-scroll-up": "playerctl next",
-    "on-scroll-down": "playerctl previous",
-    "exec": "python $HOME/.config/scripts/mediaplayer.py 2> /dev/null", // Script in resources/custom_modules folder
-},
-
-    "custom/launcher":{
-	"format": "   ",
-        "on-click": "rofi -show drun",
-        "on-click-right": "killall rofi"
+    "network": {
+        "interface": "wlp2s0",
+        "format": "{ifname}",
+        "format-wifi": "{essid} ",
+        "format-ethernet": "{ipaddr}/{cidr} 󰊗",
+        "format-disconnected": "", //An empty format will hide the module.
+        "tooltip-format": "{ifname} via {gwaddr} 󰊗",
+        "tooltip-format-wifi": "{essid} ",
+        "tooltip-format-ethernet": "{ifname} ",
+        "tooltip-format-disconnected": "Disconnected",
+        "max-length": 20
     },
-    
-    "custom/power":{
-        "format": " 󰐥 ",
-        "on-click": "wlogout"
+    "bluetooth": {
+        "format": " {status}",
+        "format-connected": " {device_alias}",
+        "format-connected-battery": " {device_alias} {device_battery_percentage}%",
+        // "format-device-preference": [ "device1", "device2" ], // preference list deciding the displayed device
+        "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
+        "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
+        "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+        "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%"
     },
 
-    "river/tags": {
-        "num-tags": 3,
-        "set-tags": [
-            2147483649,
-            2147483650,
-            2147483652
-        ]
+    "custom/lock": {
+        "tooltip": false,
+        "on-click": "sh -c '(sleep 0.5s; swaylock --grace 0)' & disown",
+        "format": " ",
+    },
+
+    "custom/power": {
+        "tooltip": false,
+        "on-click": "wlogout --buttons-per-row 5 -p xdg &",
+        "format": " "
+    },
+
+    "pulseaudio/slider": {
+        "min": 0,
+        "max": 100,
+        "orientation": "horizontal"
+    },
+
+    "backlight/slider": {
+        "min": 0,
+        "max": 100,
+        "orientation": "horizontal",
+        "device": "intel_backlight"
     }
 }
