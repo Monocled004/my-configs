@@ -1,0 +1,172 @@
+@import "mocha.css";
+
+* {
+    font-family: Iosevka Nerd Font;
+    font-size: 18px;
+    min-height: 0px;
+    padding: 2px;
+}
+
+#custom-music,
+#backlight,
+#clock,
+#battery,
+#pulseaudio,
+#custom-lock,
+#workspaces,
+#network,
+#bluetooth,
+#pulseaudio-slider,
+#custom-power {
+    background-color: @surface0;
+    padding: 0rem 1rem;
+    margin: 8px 5px;
+    border: 2pt solid;
+    border-radius: 1rem;
+}
+
+#waybar {
+    background: transparent;
+    color: @text;
+    margin: 5px 5px;
+}
+
+#workspaces {
+    margin: 5px;
+    margin-left: 1rem;
+    border-color: @sky;
+}
+
+#workspaces button {
+    color: @lavender;
+    padding: 0.4rem;
+}
+
+#workspaces button.active {
+    color: @sky;
+}
+
+#workspaces button:hover {
+    color: @sapphire;
+}
+
+#network {
+    color: @flamingo;
+    border-color: @flamingo;
+}
+
+#network.disabled,
+#network.disconnected {
+    color: @red;
+}
+
+#network.linked,
+#network.ethernet,
+#network.wifi {
+    color: @flamingo;
+}
+
+#bluetooth {
+    color: @blue;
+    border-color: @blue;
+}
+
+#bluetooth.disabled,
+#bluetooth.off,
+#bluetooth.no-controller {
+    color: @red;
+}
+
+#bluetooth.on,
+#bluetooth.connected,
+#bluetooth.discoverable,
+#bluetooth.discovering,
+#bluetooth.pairable {
+    color: @blue;
+}
+
+#clock {
+    color: @lavender;
+    border-color: @lavender;
+}
+
+#battery {
+    color: @green;
+    border-color: @green;
+}
+
+#battery.charging {
+    color: @green;
+    border-color: @green;
+}
+
+#battery.warning:not(.charging) {
+    color: @red;
+    border-color: @red;
+}
+
+#backlight{
+    color: @yellow;
+    border-color: @yellow;
+}
+
+#pulseaudio{
+    color: @maroon;
+    margin-left: 1rem;
+    margin-right: -4pt;
+    border-radius: 1rem 0rem 0rem 1rem;
+    border-right: 0px;
+    border-color: @maroon;
+}
+
+#custom-music {
+    color: @mauve;
+    border-color: @mauve;
+}
+
+#custom-lock {
+    color: @lavender;
+    border-color: @lavender;
+}
+
+#custom-power {
+    margin-right: 1rem;
+    color: @red;
+    border-color: @red;
+}
+
+#pulseaudio-slider {
+    color: @maroon;
+    border-color: @maroon;
+    margin-left: 0px;
+    border-radius: 0rem 1rem 1rem 0rem;
+    border-left: 0px;
+}
+
+#pulseaudio-slider slider {
+    min-height: 16px;
+    min-width: 16px;
+    opacity: 0;
+    background: @surface0;
+    color: @maroon;
+    border: 2pt solid;
+    border-radius: 16px;
+    box-shadow: none;
+}
+
+#pulseaudio-slider trough {
+    min-height: 4px;
+    min-width: 80px;
+    border: 0px solid;
+    border-radius: 10px;
+    background-color: @surface2;
+    margin: 1pt;
+}
+
+#pulseaudio-slider highlight {
+    min-width: 4px;
+    border-radius: 10px;
+    background: @maroon;
+    margin: -1pt;
+    border-color: @maroon;
+}
