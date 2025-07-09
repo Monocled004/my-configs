@@ -1,2 +1,2 @@
 # My-configs
-These are my configuration files
+These are my configuration files for Linux Environment
