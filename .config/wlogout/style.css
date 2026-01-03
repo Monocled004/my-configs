@@ -3,7 +3,7 @@
 
 /* Importing pywal colors */
 
-@import '..//waybar/mocha.css';
+@import '../waybar/mocha.css';
 
 window {
     font-family: Fira Code Medium;
@@ -24,6 +24,7 @@ button {
     border: 4px;
     margin: 100px 5px;
     box-shadow: none;
+    color: @text
 }
 
 button:hover,
@@ -31,7 +32,7 @@ button:focus
 {
     background-size: 70%;
     background-color: @lavender;
-    color: transparent;
+    color: @surface0;
     transition: all 0.3s cubic-bezier(.55, 0.0, .28, 1.682), box-shadow 0.5s ease-in;
     box-shadow: none;
 }

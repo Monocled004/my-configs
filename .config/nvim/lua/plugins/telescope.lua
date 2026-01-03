@@ -6,8 +6,16 @@ require("telescope").setup {
   },
   pickers = {
     find_files = {
-      -- include hidden files
-      find_command = { "rg", "--files", "--hidden", "--glob", "!.git/*" },
+      -- Use `find` to include hidden files and exclude unwanted directories
+      find_command = {
+        "find", ".", "!", "-path", "./.git/*",  -- Exclude .git
+        "!", "-path", "./.npm/*",  -- Exclude npm
+        "!", "-path", "./.cache/*",  -- Exclude npm
+        "!", "-path", "./snap/*",  -- Exclude snap
+        "!", "-path", "./.mozilla/*",  -- Exclude mozilla
+        "-type", "f",  -- Search for files
+        "-or", "-type", "d",  -- Also search for directories
+      },
     },
     live_grep = {
       additional_args = function(_)

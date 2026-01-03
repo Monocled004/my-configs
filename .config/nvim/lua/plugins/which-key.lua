@@ -1,5 +1,13 @@
 local wk = require("which-key")
 
+-- Define window navigation keymaps using leader+w
+vim.api.nvim_set_keymap('n', '<leader>wk', '<C-w>k', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>wj', '<C-w>j', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>wh', '<C-w>h', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>wl', '<C-w>l', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>wc', '<C-w>c', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>wq', ':q<CR>', { noremap = true, silent = true })
+
 wk.add({
   { "<leader>b", group = "buffer" },
   { "<leader>bb", "<cmd>Telescope buffers<cr>", desc = "Switch buffer" },
@@ -14,6 +22,11 @@ wk.add({
   { "<leader>fS", "<cmd>wa<cr>", desc = "Save all" },
 
   { "<leader>w", group = "window" },
+  { "<leader>wh", "<C-w>h", desc = "Move to Window left"},
+  { "<leader>wj", "<C-w>j", desc = "Move to Window down"},
+  { "<leader>wk", "<C-w>k", desc = "Move to Window up"},
+  { "<leader>wl", "<C-w>l", desc = "Move to Window right"},
+  { "<leader>wq", "q<Cr>", desc = "Quit Window"},
   { "<leader>wv", "<cmd>vsplit<cr>", desc = "Vertical split" },
   { "<leader>ws", "<cmd>split<cr>", desc = "Horizontal split" },
   { "<leader>wo", "<cmd>only<cr>", desc = "Close others" },
